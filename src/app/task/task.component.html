@@ -1,0 +1,21 @@
+<app-new-task  *ngIf="isAddingTask" />
+<!-- <ng-template #fallback>
+  <p id="fallback">Select a user to see their tasks!</p>
+</ng-template> -->
+
+<section id="tasks">
+  <header>
+    <h2>{{ taskName }}'s Tasks</h2>
+  </header>
+  <menu>
+    <button (click) = "onStartAddTask()">Add Task</button>
+  </menu>
+
+  <ul>
+    <li *ngFor="let task of selectedUserTasks">
+        <!-- In below code [task] is the variable name which defined on tasks.component.ts file and
+        "task" is the variable name used in for loop -->
+        <app-tasks [task]="task" (complete)="onCompleteTask($event)" /> 
+      </li>
+  </ul>
+</section>
