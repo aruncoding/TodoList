@@ -1,4 +1,4 @@
-<app-new-task  *ngIf="isAddingTask" />
+<app-new-task  *ngIf="isAddingTask" (close)="onCloseAddTask()" [userId]="id" />
 <!-- <ng-template #fallback>
   <p id="fallback">Select a user to see their tasks!</p>
 </ng-template> -->
@@ -15,7 +15,7 @@
     <li *ngFor="let task of selectedUserTasks">
         <!-- In below code [task] is the variable name which defined on tasks.component.ts file and
         "task" is the variable name used in for loop -->
-        <app-tasks [task]="task" (complete)="onCompleteTask($event)" /> 
+        <app-tasks [task]="task" /> 
       </li>
   </ul>
 </section>

@@ -1,8 +1,12 @@
-<article>
-    <h2>{{task.title}}</h2>
-<time>{{task.dueDate}}</time>
-<p>{{task.summary}}</p>
-<P class="actions">
-    <button (click)="onCompleteTask()">Complete</button>
-</P>
-</article>
+<app-card>
+  <article>
+    <h2>{{ task.title }}</h2>
+     <!-- BELOW "date" is pipe provided by angular to make date in more readable way -->
+     <!-- DatePipe -- is package imported in tasks.component.ts file -->
+    <time>{{ task.dueDate | date: 'fullDate'}}</time>
+    <p>{{ task.summary }}</p>
+    <P class="actions">
+      <button (click)="onCompleteTask()">Complete</button>
+    </P>
+  </article>
+</app-card>
